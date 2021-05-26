@@ -1,0 +1,77 @@
+@import "config";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $light-color;
+  font-family: $font-stack;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.img {
+  width: 100%;
+}
+
+.showcase {
+  // background-color: $primary-color;
+  // color: set-text-color($primary-color);
+  @include set-background($primary-color);
+  height: 600px;
+
+  // only apply to nav inside showcase class (container)
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // only apply to ul inside nav inside showcase class (container)
+    ul {
+      display: flex;
+      list-style: none;
+    }
+
+    // only apply to li inside nav inside showcase class (container)
+    li {
+      padding: 15px;
+    }
+
+    a {
+      color: set-text-color($primary-color);
+    }
+
+    // Hovering a tags in nav in showcase class (container)
+    a:hover {
+      color: $secondary-color;
+    }
+  }
+
+  // & is used to replace name of parent class, i.e. the following line means .showcase-content
+  &-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+    img {
+      width: 50%;
+    }
+
+    h1 {
+      font-size: 50px;
+      line-height: 1.2;
+    }
+  }
+}
+
+@import "mobile";
+@import "utilities";
+@import "buttons";
